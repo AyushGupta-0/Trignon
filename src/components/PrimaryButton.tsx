@@ -11,7 +11,7 @@ type PrimaryButtonProps = {
 
 export default function PrimaryButton({ children, className = "", href, type = "button", onClick, disabled }: PrimaryButtonProps) {
   const base =
-    "px-4 py-2 rounded font-semibold bg-primary text-black dark:text-white dark:bg-gray-900 transition shadow-glass inline-block";
+    "px-4 py-2 rounded font-semibold bg-gray-900 text-white dark:text-white dark:bg-gray-900 transition shadow-glass inline-block";
   const hover =
     "hover:bg-white/20 hover:dark:bg-glassDark/60 hover:shadow-2xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary/40";
 

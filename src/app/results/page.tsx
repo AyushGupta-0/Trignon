@@ -10,8 +10,11 @@ const toppers = [
 
 export default function ResultsPage() {
   return (
-    <div className="max-w-2xl mx-auto p-8">
-      <h1 className="text-3xl font-bold mb-8 text-center">Our Toppers</h1>
+    <div className="max-w-3xl mx-auto p-8">
+      <div className="mb-6 flex items-center justify-between px-2">
+        <h1 className="text-3xl font-bold mb-2">Our Toppers</h1>
+        <a href="/results" className="text-primary hover:underline">See all</a>
+      </div>
       <GlassCard>
         <ul className="divide-y divide-white/10">
           {toppers.map((topper, i) => (
@@ -19,7 +22,7 @@ export default function ResultsPage() {
               <div className="flex items-center gap-4">
                 <span className="text-2xl font-bold text-accent">#{i+1}</span>
                 <div className="flex flex-col">
-                  <span className="font-semibold text-lg">{topper.name}</span>
+                  <span className="font-semibold text-lg text-gray-900 dark:text-white">{topper.name}</span>
                   <span className="text-xs text-gray-400">{topper.school}</span>
                 </div>
               </div>
