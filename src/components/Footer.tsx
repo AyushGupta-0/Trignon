@@ -7,11 +7,11 @@ export default function Footer() {
         &copy; {new Date().getFullYear()} <Link href="/">Trignon Tutorials</Link>. All rights reserved.
       </div>
       <div className="flex gap-4">
-        <a href="/" className="hover:underline">Home</a>
-        <a href="/courses" className="hover:underline">Courses</a>
-        <a href="/gallery" className="hover:underline">Gallery</a>
-        <a href="/results" className="hover:underline">Results</a>
-        <a href="/contact" className="hover:underline">Contact</a>
+        <Link href="/" className="hover:underline">Home</Link>
+        <Link href="/courses" className="hover:underline">Courses</Link>
+        <Link href="/gallery" className="hover:underline">Gallery</Link>
+        <Link href="/results" className="hover:underline">Results</Link>
+        <Link href="/contact" className="hover:underline">Contact</Link>
       </div>
       <div className="text-xs text-gray-500 text-center md:text-right">
         B-2534 B-BLOCK, INDIRA NAGAR, OPP. UJALA HOSPITAL, LUCKNOW
