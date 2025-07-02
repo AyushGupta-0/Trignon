@@ -25,7 +25,7 @@ export default function TestimonialsCarousel() {
         <SwiperSlide key={i}>
           <div className="bg-glass/70 backdrop-blur-md rounded-2xl shadow-glass p-8 flex flex-col items-center gap-4 border border-white/10">
             <Image src={t.avatar} alt={t.name} width={64} height={64} className="rounded-full border-2 border-primary" />
-            <p className="text-gray-200 text-lg italic">"{t.text.replace(/"/g, "&quot;")}"</p>
+            <p className="text-gray-200 text-lg italic">{t.text}</p>
             <span className="text-primary font-semibold">{t.name}</span>
           </div>
         </SwiperSlide>
