@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import GlassCard from "./GlassCard";
