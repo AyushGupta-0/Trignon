@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import GlassCard from "./GlassCard";
 import PrimaryButton from "./PrimaryButton";
+import Tilt from "react-parallax-tilt";
 const TestimonialsCarousel = dynamic(() => import("./TestimonialsCarousel"), { ssr: false });
 
 export default function HomeContent() {
@@ -20,6 +21,58 @@ export default function HomeContent() {
         <PrimaryButton href="/courses">Explore Courses</PrimaryButton>
       </motion.section>
 
+      {/* Why Choose Us Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 py-8"
+      >
+        <div className="flex-1 flex flex-col gap-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-2">Why Choose Us</h2>
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">Precision Coaching: Elevating Performance Through Personalized Feedback and Goal-driven Strategies.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Feature 1 */}
+            <Tilt glareEnable={true} glareMaxOpacity={0.25} scale={1.05} tiltMaxAngleX={15} tiltMaxAngleY={15} className="w-full">
+              <GlassCard className="flex flex-col gap-2 p-4">
+                <div className="font-bold text-lg text-gray-900 dark:text-white mb-1">Better Future</div>
+                <div className="text-gray-600 dark:text-gray-300 text-base">Education unlocks potential, creating a pathway to a better future.</div>
+              </GlassCard>
+            </Tilt>
+            {/* Feature 2 */}
+            <Tilt glareEnable={true} glareMaxOpacity={0.25} scale={1.05} tiltMaxAngleX={15} tiltMaxAngleY={15} className="w-full">
+              <GlassCard className="flex flex-col gap-2 p-4">
+                <div className="font-bold text-lg text-gray-900 dark:text-white mb-1">Qualified Teachers</div>
+                <div className="text-gray-600 dark:text-gray-300 text-base">Empowering minds, skilled educators shape futures with qualified teaching excellence.</div>
+              </GlassCard>
+            </Tilt>
+            {/* Feature 3 */}
+            <Tilt glareEnable={true} glareMaxOpacity={0.25} scale={1.05} tiltMaxAngleX={15} tiltMaxAngleY={15} className="w-full">
+              <GlassCard className="flex flex-col gap-2 p-4">
+                <div className="font-bold text-lg text-gray-900 dark:text-white mb-1">Nurturing Atmosphere</div>
+                <div className="text-gray-600 dark:text-gray-300 text-base">Educators foster a warm, nurturing environment where students feel supported and valued.</div>
+              </GlassCard>
+            </Tilt>
+            {/* Feature 4 */}
+            <Tilt glareEnable={true} glareMaxOpacity={0.25} scale={1.05} tiltMaxAngleX={15} tiltMaxAngleY={15} className="w-full">
+              <GlassCard className="flex flex-col gap-2 p-4">
+                <div className="font-bold text-lg text-gray-900 dark:text-white mb-1">Holistic Development</div>
+                <div className="text-gray-600 dark:text-gray-300 text-base">Beyond academics, we nurture emotional well-being and holistic growth.</div>
+              </GlassCard>
+            </Tilt>
+          </div>
+        </div>
+        <div className="flex-1 flex justify-center items-center">
+          <Tilt glareEnable={true} glareMaxOpacity={0.25} scale={1.05} tiltMaxAngleX={15} tiltMaxAngleY={15} className="w-full max-w-xs">
+            <GlassCard className="p-2 flex flex-col items-center">
+              <img src="/topper.jpg" alt="State Topper" className="rounded-2xl w-full object-cover shadow-lg" />
+              <div className="mt-2 text-center text-sm text-gray-400">State Topper 2017-18</div>
+            </GlassCard>
+          </Tilt>
+        </div>
+      </motion.section>
+
       {/* Courses Preview */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}
@@ -34,11 +87,13 @@ export default function HomeContent() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {["VI-VIII", "IX-X", "XI-XII/IIT/NEET", "XI-XII/Commerce"].map((title, i) => (
-            <GlassCard key={i}>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{title}</h3>
-              <p className="text-gray-700 dark:text-gray-300 text-sm">Engaging classes, strong foundation, and expert guidance for every stage.</p>
-              <PrimaryButton href="/courses" className="mt-2">Learn More</PrimaryButton>
-            </GlassCard>
+            <Tilt key={i} glareEnable={true} glareMaxOpacity={0.25} scale={1.05} tiltMaxAngleX={15} tiltMaxAngleY={15} className="w-full">
+              <GlassCard>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{title}</h3>
+                <p className="text-gray-700 dark:text-gray-300 text-sm">Engaging classes, strong foundation, and expert guidance for every stage.</p>
+                <PrimaryButton href="/courses" className="mt-2">Learn More</PrimaryButton>
+              </GlassCard>
+            </Tilt>
           ))}
         </div>
       </motion.section>
@@ -57,9 +112,11 @@ export default function HomeContent() {
         </div>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
           {[1,2,3,4,5,6].map((i) => (
-            <GlassCard key={i} className="aspect-square flex items-center justify-center text-gray-400 text-2xl font-bold p-0">
-              <span>Img {i}</span>
-            </GlassCard>
+            <Tilt key={i} glareEnable={true} glareMaxOpacity={0.25} scale={1.05} tiltMaxAngleX={15} tiltMaxAngleY={15} className="w-full">
+              <GlassCard className="aspect-square flex items-center justify-center text-gray-400 text-2xl font-bold p-0">
+                <span>Img {i}</span>
+              </GlassCard>
+            </Tilt>
           ))}
         </div>
       </motion.section>

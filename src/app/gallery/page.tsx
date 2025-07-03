@@ -1,4 +1,6 @@
+"use client";
 import GlassCard from "../../components/GlassCard";
+import Tilt from "react-parallax-tilt";
 
 export default function GalleryPage() {
   return (
@@ -7,7 +9,9 @@ export default function GalleryPage() {
       <GlassCard>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[1,2,3,4,5,6,7,8].map((i) => (
-            <div key={i} className="aspect-square bg-glass/40 rounded-lg flex items-center justify-center text-gray-400 text-2xl font-bold">Img {i}</div>
+            <Tilt key={i} glareEnable={true} glareMaxOpacity={0.25} scale={1.05} tiltMaxAngleX={15} tiltMaxAngleY={15} className="w-full">
+              <div className="aspect-square bg-glass/40 rounded-lg flex items-center justify-center text-gray-400 text-2xl font-bold">Img {i}</div>
+            </Tilt>
           ))}
         </div>
       </GlassCard>
