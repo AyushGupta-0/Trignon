@@ -58,7 +58,14 @@ export default function Navbar() {
       >
         {[{ href: "/", label: "Home" }, { href: "/courses", label: "Courses" }, { href: "/gallery", label: "Gallery" }, { href: "/results", label: "Results" }, { href: "/contact", label: "Contact" }, { href: "/dashboard", label: "Dashboard" }, { href: "/signin", label: "Sign In" }].map((item) => (
           <motion.div key={item.href} variants={fadeInUp} whileHover={{ scale: 1.08, color: "#0ea5e9" }}>
-            <Link href={item.href}>{item.label}</Link>
+            <Link
+              href={item.href}
+              className={
+                `px-2 py-1 rounded transition font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary`
+              }
+            >
+              {item.label}
+            </Link>
           </motion.div>
         ))}
         <motion.button

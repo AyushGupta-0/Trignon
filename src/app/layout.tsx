@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import LightningBackground from "../components/LightningBackground";
+import ParticleBackground from "../components/ParticleBackground";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 text-gray-900 dark:text-gray-100 transition-colors duration-500`}>
         <LightningBackground hue={220} xOffset={0} speed={0.5} intensity={0.6} size={2.5} />
+        <ParticleBackground />
         <Navbar />
         <main className="pt-8 bg-glass/60 dark:bg-glassDark/60 backdrop-blur-md min-h-[90vh] rounded-3xl shadow-glass mx-2 my-4 p-2 transition-all duration-500">{children}</main>
         <Footer />

@@ -6,7 +6,7 @@ export default function GlassCard({ children, className = "" }: { children: Reac
       bg-glassDark/60
       backdrop-blur-md
       rounded-2xl
-      shadow-glass
+      dark:shadow-glass
       border border-white/10
       p-6
       ${className}
