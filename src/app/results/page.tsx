@@ -60,15 +60,15 @@ export default function ResultsPage() {
               className="flex items-center justify-between py-3 px-2 rounded-xl transition"
             >
               <div className="flex items-center gap-4">
-                <span className="text-2xl font-bold text-accent">#{i+1}</span>
+                <span className="text-2xl font-bold text-gray-500 dark:text-gray-400">#{i+1}</span>
                 <div className="flex flex-col">
                   <span className="font-semibold text-lg text-gray-900 dark:text-white">{topper.name}</span>
-                  <span className="text-xs text-gray-400">{topper.school}</span>
+                  <span className="text-xs text-gray-600 dark:text-gray-300">{topper.school}</span>
                 </div>
               </div>
               <div className="flex flex-col items-end">
                 <span className="text-xl font-mono text-primary">{topper.marks}%</span>
-                <span className="text-xs text-gray-400">{topper.year}</span>
+                <span className="text-xs text-gray-500 dark:text-gray-400">{topper.year}</span>
               </div>
             </motion.li>
           ))}
