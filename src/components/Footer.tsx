@@ -1,4 +1,19 @@
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const staggerContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 export default function Footer() {
   return (
@@ -6,13 +21,18 @@ export default function Footer() {
       <div>
         &copy; {new Date().getFullYear()} <Link href="/">Trignon Tutorials</Link>. All rights reserved.
       </div>
-      <div className="flex gap-4">
-        <Link href="/" className="hover:underline">Home</Link>
-        <Link href="/courses" className="hover:underline">Courses</Link>
-        <Link href="/gallery" className="hover:underline">Gallery</Link>
-        <Link href="/results" className="hover:underline">Results</Link>
-        <Link href="/contact" className="hover:underline">Contact</Link>
-      </div>
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="show"
+        className="flex gap-4"
+      >
+        {[{ href: "/", label: "Home" }, { href: "/courses", label: "Courses" }, { href: "/gallery", label: "Gallery" }, { href: "/results", label: "Results" }, { href: "/contact", label: "Contact" }].map((item) => (
+          <motion.div key={item.href} variants={fadeInUp} whileHover={{ scale: 1.08, color: "#0ea5e9" }}>
+            <Link href={item.href} className="hover:underline">{item.label}</Link>
+          </motion.div>
+        ))}
+      </motion.div>
       <div className="text-xs text-gray-500 text-center md:text-right">
         B-2534 B-BLOCK, INDIRA NAGAR, OPP. UJALA HOSPITAL, LUCKNOW
       </div>
