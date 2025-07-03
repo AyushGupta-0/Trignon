@@ -56,7 +56,7 @@ export default function Navbar() {
         animate="show"
         className="hidden md:flex gap-6 text-base font-medium items-center"
       >
-        {[{ href: "/", label: "Home" }, { href: "/courses", label: "Courses" }, { href: "/gallery", label: "Gallery" }, { href: "/results", label: "Results" }, { href: "/contact", label: "Contact" }, { href: "/dashboard", label: "Dashboard" }, { href: "/signin", label: "Sign In" }].map((item, i) => (
+        {[{ href: "/", label: "Home" }, { href: "/courses", label: "Courses" }, { href: "/gallery", label: "Gallery" }, { href: "/results", label: "Results" }, { href: "/contact", label: "Contact" }, { href: "/dashboard", label: "Dashboard" }, { href: "/signin", label: "Sign In" }].map((item) => (
           <motion.div key={item.href} variants={fadeInUp} whileHover={{ scale: 1.08, color: "#0ea5e9" }}>
             <Link href={item.href}>{item.label}</Link>
           </motion.div>

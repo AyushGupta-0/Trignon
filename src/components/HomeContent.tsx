@@ -1,5 +1,5 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import GlassCard from "./GlassCard";
 import PrimaryButton from "./PrimaryButton";
@@ -17,10 +17,6 @@ const staggerContainer = {
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7 } },
-};
-const fadeIn = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.7 } },
 };
 
 export default function HomeContent() {
