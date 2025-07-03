@@ -29,9 +29,13 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] }:
 
   const cylinderWidth = isScreenSizeSm ? 1100 : 1800;
   const faceCount = galleryImages.length;
-  const faceWidth = (cylinderWidth / faceCount) * 1.4;
+  const isMobile = isScreenSizeSm;
+  const faceWidth = isMobile
+    ? (cylinderWidth / faceCount) * 1.1 // smaller multiplier for mobile
+    : (cylinderWidth / faceCount) * 1.4;
   const dragFactor = 0.05;
   const radius = cylinderWidth / (2 * Math.PI);
+  const imageMargin = isMobile ? '0 4px' : '0 12px';
 
   const rotation = useMotionValue(0);
   const controls = useAnimation();
@@ -134,7 +138,7 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] }:
               style={{
                 width: `${faceWidth}px`,
                 transform: `rotateY(${i * (360 / faceCount)}deg) translateZ(${radius}px)`,
-                margin: '0 12px',
+                margin: imageMargin, // Responsive gap
               }}
             >
               <img src={url} alt="gallery" className={styles.galleryImg} />
