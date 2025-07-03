@@ -17,7 +17,7 @@ const fadeInUp = {
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-12 py-6 px-4 bg-glass/70 backdrop-blur-md shadow-glass border-t border-white/10 rounded-t-2xl flex flex-col md:flex-row items-center justify-between gap-4 text-gray-300 text-sm">
+    <footer className="w-full mt-8 py-6 px-4 md:px-8 bg-glass/60 dark:bg-glassDark/60 backdrop-blur-md shadow-glass rounded-t-2xl border border-white/10 text-center text-gray-500 text-sm">
       <div>
         &copy; {new Date().getFullYear()} <Link href="/">Trignon Tutorials</Link>. All rights reserved.
       </div>

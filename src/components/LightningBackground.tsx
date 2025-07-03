@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 interface LightningBackgroundProps {
   hue?: number;
@@ -44,8 +44,21 @@ const LightningBackground: React.FC<LightningBackgroundProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const boltRef = useRef<{ points: { x: number; y: number }[]; opacity: number }[]>([]);
+  const [isDark, setIsDark] = useState(false);
+
+  // Track dark mode
+  useEffect(() => {
+    const checkDark = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+    checkDark();
+    const observer = new MutationObserver(checkDark);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
+    if (!isDark) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -116,7 +129,9 @@ const LightningBackground: React.FC<LightningBackgroundProps> = ({
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [hue, xOffset, speed, intensity, size]);
+  }, [hue, xOffset, speed, intensity, size, isDark]);
+
+  if (!isDark) return null;
 
   return (
     <canvas

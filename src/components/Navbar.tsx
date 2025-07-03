@@ -40,7 +40,7 @@ export default function Navbar() {
   }, [dark]);
 
   return (
-    <nav className="w-full flex items-center justify-between px-4 md:px-8 py-4 bg-glassDark/80 dark:bg-glassDark/80 bg-glass/70 backdrop-blur-md shadow-glass sticky top-0 z-50 rounded-b-2xl">
+    <nav className="w-full flex items-center justify-between px-4 md:px-8 py-4 bg-glass/60 dark:bg-glassDark/60 backdrop-blur-md shadow-glass sticky top-0 z-50 rounded-b-2xl border border-white/10">
       <motion.div
         variants={fadeInUp}
         initial="hidden"
