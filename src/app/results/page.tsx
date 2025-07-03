@@ -1,4 +1,6 @@
+"use client";
 import GlassCard from "../../components/GlassCard";
+import { motion } from "framer-motion";
 
 const toppers = [
   { name: "Aarav Sharma", marks: 98, year: 2024, school: "St. Xavier's" },
@@ -8,17 +10,55 @@ const toppers = [
   { name: "Aditya Patel", marks: 94, year: 2022, school: "St. Francis" },
 ];
 
+const staggerContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+};
+
 export default function ResultsPage() {
   return (
     <div className="max-w-3xl mx-auto p-8">
       <div className="mb-6 flex items-center justify-between px-2">
-        <h1 className="text-3xl font-bold mb-2">Our Toppers</h1>
-        <a href="/results" className="text-primary hover:underline">See all</a>
+        <motion.h1
+          variants={fadeInUp}
+          initial="hidden"
+          animate="show"
+          className="text-3xl font-bold mb-2"
+        >
+          Our Toppers
+        </motion.h1>
+        <motion.a
+          variants={fadeInUp}
+          initial="hidden"
+          animate="show"
+          href="/results"
+          className="text-primary hover:underline"
+        >
+          See all
+        </motion.a>
       </div>
       <GlassCard>
-        <ul className="divide-y divide-white/10">
+        <motion.ul
+          variants={staggerContainer}
+          initial="hidden"
+          animate="show"
+          className="divide-y divide-white/10"
+        >
           {toppers.map((topper, i) => (
-            <li key={i} className="flex items-center justify-between py-3 px-2 hover:bg-white/10 dark:hover:bg-glassDark/80 rounded-xl transition">
+            <motion.li
+              key={i}
+              variants={fadeInUp}
+              whileHover={{ scale: 1.03, backgroundColor: "rgba(255,255,255,0.08)" }}
+              className="flex items-center justify-between py-3 px-2 rounded-xl transition"
+            >
               <div className="flex items-center gap-4">
                 <span className="text-2xl font-bold text-accent">#{i+1}</span>
                 <div className="flex flex-col">
@@ -30,9 +70,9 @@ export default function ResultsPage() {
                 <span className="text-xl font-mono text-primary">{topper.marks}%</span>
                 <span className="text-xs text-gray-400">{topper.year}</span>
               </div>
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </GlassCard>
     </div>
   );
