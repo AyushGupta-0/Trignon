@@ -133,23 +133,22 @@ export default function HomeContent() {
           <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">Gallery</motion.h2>
           <motion.a variants={fadeInUp} href="/gallery" className="text-primary hover:underline">See all</motion.a>
         </div>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-3 md:grid-cols-6 gap-3"
-        >
-          {[1,2,3,4,5,6].map((i) => (
-            <motion.div key={i} variants={fadeInUp} whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}>
-              <Tilt glareEnable={true} glareMaxOpacity={0.25} scale={1.05} tiltMaxAngleX={15} tiltMaxAngleY={15} className="w-full">
-                <GlassCard className="aspect-square flex items-center justify-center text-gray-400 text-2xl font-bold p-0">
-                  <span>Img {i}</span>
-                </GlassCard>
-              </Tilt>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Rolling Gallery */}
+        <div className="overflow-hidden w-full py-4">
+          <div className="flex gap-8 animate-rolling-gallery whitespace-nowrap" style={{ animation: 'rolling-gallery 18s linear infinite' }}>
+            {[1,2,3,4,5,6,1,2,3,4,5,6].map((i, idx) => (
+              <div key={idx} className="inline-block aspect-square w-32 h-32 bg-glass/60 dark:bg-glassDark/60 rounded-2xl flex items-center justify-center text-2xl font-bold text-gray-900 dark:text-white border border-white/10 shadow-md">
+                Img {i}
+              </div>
+            ))}
+          </div>
+        </div>
+        <style jsx global>{`
+          @keyframes rolling-gallery {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}</style>
       </motion.section>
 
       {/* Contact Us Button */}
