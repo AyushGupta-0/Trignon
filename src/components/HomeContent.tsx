@@ -45,7 +45,7 @@ export default function HomeContent() {
         className="w-full max-w-5xl mx-auto"
       >
         <div className="mb-6 flex items-center justify-between px-2">
-          <motion.h2 variants={fadeInUp} className="text-2xl font-bold text-gray-900 dark:text-white">Our Courses</motion.h2>
+          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">Our Courses</motion.h2>
           <motion.a variants={fadeInUp} href="/courses" className="text-primary hover:underline">See all</motion.a>
         </div>
         <motion.div
@@ -130,7 +130,7 @@ export default function HomeContent() {
         className="w-full max-w-5xl mx-auto"
       >
         <div className="mb-6 flex items-center justify-between px-2">
-          <motion.h2 variants={fadeInUp} className="text-2xl font-bold text-gray-900 dark:text-white">Gallery</motion.h2>
+          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">Gallery</motion.h2>
           <motion.a variants={fadeInUp} href="/gallery" className="text-primary hover:underline">See all</motion.a>
         </div>
         <motion.div
@@ -173,7 +173,7 @@ export default function HomeContent() {
         viewport={{ once: true, amount: 0.2 }}
         className="w-full max-w-3xl mx-auto"
       >
-        <motion.h2 variants={fadeInUp} className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">What Our Students Say</motion.h2>
+        <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-6 text-center">What Our Students Say</motion.h2>
         <motion.div variants={fadeInUp}>
           <TestimonialsCarousel />
         </motion.div>
@@ -188,7 +188,7 @@ export default function HomeContent() {
         className="w-full max-w-3xl mx-auto"
       >
         <div className="mb-6 flex items-center justify-between px-2">
-          <motion.h2 variants={fadeInUp} className="text-2xl font-bold text-gray-900 dark:text-white">Our Toppers</motion.h2>
+          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">Our Toppers</motion.h2>
           <motion.a variants={fadeInUp} href="/results" className="text-primary hover:underline">See all</motion.a>
         </div>
         <GlassCard>
