@@ -36,6 +36,39 @@ export default function HomeContent() {
         </motion.div>
       </motion.section>
 
+      {/* Courses Preview */}
+      <motion.section
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="w-full max-w-5xl mx-auto"
+      >
+        <div className="mb-6 flex items-center justify-between px-2">
+          <motion.h2 variants={fadeInUp} className="text-2xl font-bold text-gray-900 dark:text-white">Our Courses</motion.h2>
+          <motion.a variants={fadeInUp} href="/courses" className="text-primary hover:underline">See all</motion.a>
+        </div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {["VI-VIII", "IX-X", "XI-XII/IIT/NEET", "XI-XII/Commerce"].map((title, i) => (
+            <motion.div key={i} variants={fadeInUp} whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}>
+              <Tilt glareEnable={true} glareMaxOpacity={0.25} scale={1.05} tiltMaxAngleX={15} tiltMaxAngleY={15} className="w-full">
+                <GlassCard>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{title}</h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm">Engaging classes, strong foundation, and expert guidance for every stage.</p>
+                  <PrimaryButton href="/courses" className="mt-2">Learn More</PrimaryButton>
+                </GlassCard>
+              </Tilt>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.section>
+
       {/* Why Choose Us Section */}
       <motion.section
         variants={fadeInUp}
@@ -85,39 +118,6 @@ export default function HomeContent() {
               <div className="mt-2 text-center text-sm text-gray-400">State Topper 2017-18</div>
             </GlassCard>
           </Tilt>
-        </motion.div>
-      </motion.section>
-
-      {/* Courses Preview */}
-      <motion.section
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        className="w-full max-w-5xl mx-auto"
-      >
-        <div className="mb-6 flex items-center justify-between px-2">
-          <motion.h2 variants={fadeInUp} className="text-2xl font-bold text-gray-900 dark:text-white">Our Courses</motion.h2>
-          <motion.a variants={fadeInUp} href="/courses" className="text-primary hover:underline">See all</motion.a>
-        </div>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-        >
-          {["VI-VIII", "IX-X", "XI-XII/IIT/NEET", "XI-XII/Commerce"].map((title, i) => (
-            <motion.div key={i} variants={fadeInUp} whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}>
-              <Tilt glareEnable={true} glareMaxOpacity={0.25} scale={1.05} tiltMaxAngleX={15} tiltMaxAngleY={15} className="w-full">
-                <GlassCard>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{title}</h3>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm">Engaging classes, strong foundation, and expert guidance for every stage.</p>
-                  <PrimaryButton href="/courses" className="mt-2">Learn More</PrimaryButton>
-                </GlassCard>
-              </Tilt>
-            </motion.div>
-          ))}
         </motion.div>
       </motion.section>
 
