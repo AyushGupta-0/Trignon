@@ -37,11 +37,11 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] }:
   const controls = useAnimation();
   const autoplayRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
-  const handleDrag = (_: any, info: { offset: { x: number } }) => {
+  const handleDrag = (_: unknown, info: { offset: { x: number } }) => {
     rotation.set(rotation.get() + info.offset.x * dragFactor);
   };
 
-  const handleDragEnd = (_: any, info: { velocity: { x: number } }) => {
+  const handleDragEnd = (_: unknown, info: { velocity: { x: number } }) => {
     controls.start({
       rotateY: rotation.get() + info.velocity.x * dragFactor,
       transition: { type: "spring", stiffness: 60, damping: 20, mass: 0.1, ease: "easeOut" },

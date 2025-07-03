@@ -6,9 +6,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const testimonials = [
-  { name: "Aarav Sharma", text: "Trignon Tutorials helped me achieve my dream rank! The teachers are amazing.", avatar: "/avatar1.png" },
-  { name: "Priya Singh", text: "The environment is so supportive and the classes are fun and effective.", avatar: "/avatar2.png" },
-  { name: "Rahul Verma", text: "Best coaching for science and commerce. Highly recommend!", avatar: "/avatar3.png" },
+  { name: "Aarav Sharma", class: "XII Science", school: "St. Xavier's School", text: "Trignon Tutorials helped me achieve my dream rank! The teachers are amazing." },
+  { name: "Priya Singh", class: "XI Commerce", school: "Delhi Public School", text: "The environment is so supportive and the classes are fun and effective." },
+  { name: "Rahul Verma", class: "X Science", school: "Modern School", text: "Best coaching for science and commerce. Highly recommend!" },
 ];
 
 export default function TestimonialsCarousel() {
@@ -24,9 +24,11 @@ export default function TestimonialsCarousel() {
       {testimonials.map((t, i) => (
         <SwiperSlide key={i}>
           <div className="bg-glass/70 backdrop-blur-md rounded-2xl shadow-glass p-8 flex flex-col items-center gap-4 border border-white/10">
-            <Image src={t.avatar} alt={t.name} width={64} height={64} className="rounded-full border-2 border-primary" />
             <p className="text-gray-900 dark:text-white text-lg italic">{t.text}</p>
-            <span className="text-primary font-semibold">{t.name}</span>
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-primary font-semibold">{t.name}</span>
+              <span className="text-gray-600 dark:text-gray-300 text-sm">{t.class} &mdash; {t.school}</span>
+            </div>
           </div>
         </SwiperSlide>
       ))}
